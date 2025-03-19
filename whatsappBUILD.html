@@ -118,10 +118,20 @@
     </div>
 
     <script>
-	let lastActivity = "";
+	  let lastActivity = "";
+
+    const input = document.getElementById("messageInput");
+
+    // ADD THIS EVENT LISTENER FOR ENTER KEY
+    input.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevents default form behavior
+            sendMessage(); // Call the sendMessage function
+        }
+    });
 
         async function fetchRelevantAds() {
-            const API_KEY = "API-KEY"; 
+            const API_KEY = ""; 
             const prompt = `You are an Ads suggestion engine. Based on the latest message: "${lastActivity}", suggest 2 relevant ad images from the following ad category tree:
 
 {
@@ -231,12 +241,12 @@ No additional text or explanation. DONT SEND MARKDOWN.`;
 
 
         function sendMessage() {
-            let input = document.getElementById("messageInput");
+        
             let text = input.value.trim();
             if (text === "") return;
 	  
             lastActivity = text;            
-	    fetchRelevantAds();
+	          fetchRelevantAds();
 
             let chatBox = document.getElementById("chatBox");
             let message = document.createElement("div");
