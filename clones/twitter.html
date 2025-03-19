@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Feed Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6ecf0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+	    margin-right:800px;
+        }
+        .feed-container {
+            width: 400px;
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            max-height: 90vh;
+        }
+        .tweet-box {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            position: sticky;
+            top: 0;
+            background: white;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            z-index: 10;
+        }
+        .tweet-box textarea {
+            width: calc(100% - 20px);
+            height: 60px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            resize: none;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .tweet-box button {
+            margin-top: 10px;
+            background: #1da1f2;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .tweets {
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+        .tweet {
+            background: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+        }
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .tweet-content {
+            flex: 1;
+        }
+        .tweet-header {
+            font-size: 12px;
+            color: gray;
+            margin-bottom: 5px;
+        }
+        .tweet-footer {
+            font-size: 12px;
+            color: gray;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+        .like-btn, .retweet-btn {
+            color: #1da1f2;
+            cursor: pointer;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="feed-container">
+        <div class="tweet-box">
+            <textarea id="tweetInput" placeholder="What's happening?"></textarea>
+            <button onclick="addTweet()">Tweet</button>
+        </div>
+        <div class="tweets" id="tweets"></div>
+    </div>
+
+    <script>
+        const dummyTweets = [
+            { text: "Exploring the streets of Tokyo! 🍣🏯", user: "@sakura_japan", color: "#ffadad" },
+            { text: "Sunset over the Grand Canyon is breathtaking! 🌅", user: "@traveler_mike", color: "#ffd6a5" },
+            { text: "Just finished my AI project. Excited for what's next! 🤖", user: "@tech_wizard", color: "#caffbf" },
+            { text: "Rainy days in London, but still love it! ☔️", user: "@british_vibes", color: "#a0c4ff" },
+            { text: "The best pizza is definitely in Naples! 🍕", user: "@foodie_italy", color: "#bdb2ff" }
+        ];
+        
+        function loadDummyTweets() {
+            dummyTweets.forEach(tweet => {
+                createTweetElement(tweet.text, tweet.user, tweet.color);
+            });
+        }
+
+        function addTweet() {
+            let input = document.getElementById("tweetInput");
+            let text = input.value.trim();
+            if (text === "") return;
+            
+            createTweetElement(text, "@you", "#ffb6c1");
+            input.value = "";
+        }
+
+        function createTweetElement(text, user, color) {
+            let tweetsContainer = document.getElementById("tweets");
+            let tweet = document.createElement("div");
+            tweet.classList.add("tweet");
+            
+            let now = new Date();
+            let timeString = now.toLocaleString();
+            
+            tweet.innerHTML = `
+                <div class="profile-pic" style="background:${color};"></div>
+                <div class="tweet-content">
+                    <div class="tweet-header">${user} · ${timeString}</div>
+                    <div>${text}</div>
+                    <div class="tweet-footer">
+                        <span class="like-btn" onclick="likeTweet(this)">Like</span>
+                        <span class="retweet-btn" onclick="retweet(this)">Retweet</span>
+                        <span>0 Likes</span>
+                    </div>
+                </div>
+            `;
+            tweetsContainer.prepend(tweet);
+        }
+
+        function likeTweet(element) {
+            let likesText = element.nextElementSibling.nextElementSibling;
+            let likes = parseInt(likesText.textContent) || 0;
+            likes++;
+            likesText.textContent = `${likes} Likes`;
+        }
+
+        function retweet(element) {
+            let tweetContent = element.parentElement.previousElementSibling.textContent;
+            createTweetElement(tweetContent, "@you", "#ffb6c1");
+        }
+
+        window.onload = loadDummyTweets;
+    </script>
+</body>
+</html>

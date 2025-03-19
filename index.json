@@ -1,0 +1,79 @@
+{
+  "Electronics": {
+    "Laptops": {
+      "Gaming": {},
+      "Work": {},
+      "Budget": {}
+    },
+    "TVs": {
+      "OLED": {},
+      "QLED": {},
+      "LED": {}
+    },
+    "Gaming Consoles": {
+      "PlayStation": {},
+      "Xbox": {},
+      "Nintendo": {}
+    },
+    "Accessories": {
+      "Headphones": {},
+      "Keyboards": {},
+      "Mice": {},
+      "Monitors": {},
+      "Phone": {}
+    }
+  },
+  "Clothing": {
+    "Men": {
+      "Casual": {},
+      "Formal": {},
+      "Sportswear": {}
+    },
+    "Women": {
+      "Dresses": {},
+      "Ethnic Wear": {},
+      "Casual Wear": {}
+    }
+  },
+  "Furniture & Decor": {
+    "Living Room": {
+      "Sofas": {},
+      "Chairs": {},
+      "Tables": {}
+    },
+    "Bedroom": {
+      "Beds": {},
+      "Mattresses": {},
+      "Wardrobes": {}
+    }
+  },
+  "Lifestyle": {
+    "Travel": {
+      "Flights": {},
+      "Trains": {},
+      "Packages": {}
+    },
+    "Gifts": {
+      "Watch": {},
+      "Gift_Card": {},
+      "Alcohol": {}
+    }
+  },
+  "Food & Beverages": {
+    "Restaurants": {
+      "Fast Food": {},
+      "Fine Dining": {},
+      "Cafes": {}
+    },
+    "Snacks": {
+      "Chips": {},
+      "Cookies": {},
+      "Protein Bars": {}
+    },
+    "Groceries": {
+      "Fruits & Vegetables": {},
+      "Dairy": {},
+      "Meat & Seafood": {}
+    }
+  }
+}
