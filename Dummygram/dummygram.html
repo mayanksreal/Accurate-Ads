@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DummyGram</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            position: relative;
+            background-color: #f9f9f9;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 70%;
+            gap: 50px;
+        }
+        .posts-section, .chat-section {
+            width: 45%;
+        }
+        .post-box, .chat-box {
+            border: 2px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        #posts-container {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        .chat-window {
+            height: 500px;
+            border: 2px solid #ddd;
+            padding: 10px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .message {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        .sent {
+            background-color: #dcf8c6;
+            align-self: flex-end;
+        }
+        .header {
+            font-family: 'Calibri', serif;
+            font-size: 42px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .ad-space {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 10%;
+            border: 2px solid #ddd;
+        }
+        .left-ad {
+            left: 0;
+        }
+        .right-ad {
+            right: 0;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        textarea, input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .friend-header {
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .online-dot {
+            width: 10px;
+            height: 10px;
+            background-color: green;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">DummyGram</div>
+    <div class="ad-space left-ad"></div>
+    <div class="ad-space right-ad"></div>
+    <div class="container">
+        <div class="posts-section">
+            <div class="post-box">
+                <textarea id="post-input" placeholder="What's on your mind?" rows="3"></textarea>
+                <button onclick="createPost()">Post</button>
+            </div>
+            <div id="posts-container"></div>
+        </div>
+        
+        <div class="chat-section">
+            <div class="friend-header">Friend <div class="online-dot"></div></div>
+            <div class="chat-window" id="chat-window"></div>
+            <input type="text" id="chat-input" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function getRandomColor() {
+            const colors = ['#ffadad', '#ffd6a5', '#fdffb6', '#caffbf', '#9bf6ff', '#a0c4ff', '#bdb2ff', '#ffc6ff'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+        
+        function createPost() {
+            let postInput = document.getElementById('post-input');
+            if (postInput.value.trim() === '') return;
+            let postContainer = document.getElementById('posts-container');
+            let postDiv = document.createElement('div');
+            postDiv.className = 'post-box';
+            postDiv.style.backgroundColor = getRandomColor();
+            postDiv.innerHTML = `<strong>${new Date().toLocaleTimeString()}</strong><br>${postInput.value}`;
+            postContainer.appendChild(postDiv);
+            postInput.value = '';
+        }
+        
+        function sendMessage() {
+            let chatInput = document.getElementById('chat-input');
+            if (chatInput.value.trim() === '') return;
+            let chatWindow = document.getElementById('chat-window');
+            let messageDiv = document.createElement('div');
+            messageDiv.className = 'message sent';
+            messageDiv.textContent = chatInput.value;
+            chatWindow.appendChild(messageDiv);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+            chatInput.value = '';
+        }
+    </script>
+</body>
+</html>

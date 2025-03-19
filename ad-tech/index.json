@@ -1,0 +1,84 @@
+{
+  "Electronics": {
+    "Laptops": {
+      "Gaming": "ad1.jpg",
+      "Work": "ad2.jpg",
+      "Budget": "ad3.jpg"
+    },
+    "TVs": {
+      "OLED": "ad4.jpg",
+      "QLED": "ad5.jpg",
+      "LED": "ad6.jpg"
+    },
+    "Gaming Consoles": {
+      "PlayStation": "ad7.jpg",
+      "Xbox": "ad8.jpg",
+      "Nintendo": "ad9.jpg"
+    },
+    "Accessories": {
+      "Headphones": "ad10.jpg",
+      "Keyboards": "ad11.jpg",
+      "Mice": "ad12.jpg",
+      "Monitors": "ad13.jpg"
+    }
+  },
+  "Clothing": {
+    "Men": {
+      "Casual": "ad14.jpg",
+      "Formal": "ad15.jpg",
+      "Sportswear": "ad16.jpg"
+    },
+    "Women": {
+      "Dresses": "ad17.jpg",
+      "Ethnic Wear": "ad18.jpg",
+      "Casual Wear": "ad19.jpg"
+    },
+    "Kids": {
+      "Baby Clothes": "ad20.jpg",
+      "School Wear": "ad21.jpg",
+      "Casual": "ad22.jpg"
+    }
+  },
+  "Furniture & Decor": {
+    "Living Room": {
+      "Sofas": "ad23.jpg",
+      "Chairs": "ad24.jpg",
+      "Tables": "ad25.jpg"
+    },
+    "Bedroom": {
+      "Beds": "ad26.jpg",
+      "Mattresses": "ad27.jpg",
+      "Wardrobes": "ad28.jpg"
+    }
+  },
+  "Lifestyle": {
+    "Travel": {
+      "Flights": "ad34.jpg",
+      "Trains": "ad35.jpg",
+      "Packages": "ad36.jpg"
+    },
+    "Gifts": {
+      "Watch": "ad37.jpg",
+      "Gift_Card": "ad38.jpg",
+      "Alcohol": "ad39.jpg"
+    }
+  },
+  "Food & Beverages": {
+    "Restaurants": {
+      "Fast Food": "ad43.jpg",
+      "Fine Dining": "ad44.jpg",
+      "Cafes": "ad45.jpg"
+    },
+    "Snacks": {
+      "Chips": "ad46.jpg",
+      "Cookies": "ad47.jpg",
+      "Protein Bars": "ad48.jpg"
+    },
+    "Groceries": {
+      "Fruits & Vegetables": "ad52.jpg",
+      "Dairy": "ad53.jpg",
+      "Meat & Seafood": "ad54.jpg"
+    }
+  }
+}
+
